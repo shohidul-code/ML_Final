@@ -1,0 +1,16 @@
+name: Sync to Hugging Face Hub
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: huggingface/hub-sync@v1.0
+        with:
+          github_repo_id: shohidul-code/ML_Final
+          huggingface_repo_id: shohid-code/ML_Final
+          hf_token: ${{ secrets.HF_TOKEN }}
